@@ -1,17 +1,19 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const Card = ({ meal }) => {
   const { strMeal, strMealThumb, strInstructions, idMeal } = meal;
+  const navigate = useNavigate()
   return (
     <div>
-      <div class="card">
-        <img src={strMealThumb} class="card-img-top" alt="" />
-        <div class="card-body">
-          <h5 class="card-title">{strMeal}</h5>
-          <p class="card-text">{strInstructions.slice(0, 200)}</p>
-          <a href="#" class="btn btn-primary">
+      <div className="card">
+        <img src={strMealThumb} className="card-img-top" alt="" />
+        <div className="card-body">
+          <h5 className="card-title">{strMeal}</h5>
+          <p className="card-text">{strInstructions.slice(0, 200)}</p>
+          <button onClick={()=>navigate(`foodDetails/${idMeal}`)} className="btn btn-primary">
             details
-          </a>
+          </button>
         </div>
       </div>
     </div>
